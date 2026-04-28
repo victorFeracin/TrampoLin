@@ -502,7 +502,7 @@ components:
           example:
             error:
               code: UNAUTHORIZED
-              message: Missing or invalid expired token
+              message: Missing or invalid token
     JobNotFound:
       description: Job not found
       content:
