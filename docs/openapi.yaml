@@ -438,7 +438,7 @@ components:
       required: true
       description: Unique job identifier
       schema:
-        type: number
+        type: integer
         example: 1
     TitleFilter:
       name: title
