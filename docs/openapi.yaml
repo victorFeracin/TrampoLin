@@ -436,8 +436,8 @@ components:
       required: true
       description: Unique job identifier
       schema:
-        type: string
-        example: job_123
+        type: number
+        example: 1
     TitleFilter:
       name: title
       in: query
@@ -606,8 +606,8 @@ components:
         - createdAt
       properties:
         id:
-          type: string
-          example: user_123
+          type: number
+          example: 1
         name:
           type: string
           example: Ana Souza
@@ -680,8 +680,8 @@ components:
         - createdAt
       properties:
         id:
-          type: string
-          example: job_123
+          type: number
+          example: 1
         title:
           type: string
           example: Senior QA Engineer
@@ -747,8 +747,8 @@ components:
         - createdAt
       properties:
         id:
-          type: string
-          example: job_123
+          type: number
+          example: 1
         title:
           type: string
           example: Senior QA Engineer
@@ -864,8 +864,8 @@ components:
         - appliedAt
       properties:
         id:
-          type: string
-          example: app_123
+          type: number
+          example: 1
         jobId:
           type: string
           example: job_123
@@ -896,8 +896,8 @@ components:
         - job
       properties:
         id:
-          type: string
-          example: app_123
+          type: number
+          example: 1
         appliedAt:
           type: string
           format: date-time
@@ -926,8 +926,8 @@ components:
         - email
       properties:
         id:
-          type: string
-          example: user_123
+          type: number
+          example: 1
         name:
           type: string
           example: Ana Souza
@@ -945,8 +945,8 @@ components:
         - appliedAt
       properties:
         id:
-          type: string
-          example: app_123
+          type: number
+          example: 1
         candidate:
           $ref: '#/components/schemas/CandidateSummary'
         resumeUrl:
