@@ -494,7 +494,7 @@ components:
                 - field: email
                   message: Email must be a valid email address
     Unauthorized:
-      description: Missing, invalid, or expired token
+      description: Missing or invalid token
       content:
         application/json:
           schema:
@@ -502,7 +502,7 @@ components:
           example:
             error:
               code: UNAUTHORIZED
-              message: Missing, invalid, or expired token
+              message: Missing or invalid expired token
     JobNotFound:
       description: Job not found
       content:
