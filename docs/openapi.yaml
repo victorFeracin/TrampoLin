@@ -608,7 +608,7 @@ components:
         - createdAt
       properties:
         id:
-          type: number
+          type: integer
           example: 1
         name:
           type: string
@@ -664,8 +664,8 @@ components:
         - name
       properties:
         createdBy:
-          type: string
-          example: user_456
+          type: integer
+          example: 2
         name:
           type: string
           example: Carlos Lima
@@ -682,7 +682,7 @@ components:
         - createdAt
       properties:
         id:
-          type: number
+          type: integer
           example: 1
         title:
           type: string
@@ -749,7 +749,7 @@ components:
         - createdAt
       properties:
         id:
-          type: number
+          type: integer
           example: 1
         title:
           type: string
@@ -769,8 +769,8 @@ components:
         status:
           $ref: '#/components/schemas/JobStatus'
         createdBy:
-          type: string
-          example: user_456
+          type: integer
+          example: 2
         createdAt:
           type: string
           format: date-time
@@ -866,14 +866,14 @@ components:
         - appliedAt
       properties:
         id:
-          type: number
+          type: integer
           example: 1
         jobId:
-          type: string
-          example: job_123
+          type: integer
+          example: 1
         candidateId:
-          type: string
-          example: user_123
+          type: integer
+          example: 1
         resumeUrl:
           type: string
           format: uri
@@ -898,7 +898,7 @@ components:
         - job
       properties:
         id:
-          type: number
+          type: integer
           example: 1
         appliedAt:
           type: string
@@ -928,7 +928,7 @@ components:
         - email
       properties:
         id:
-          type: number
+          type: integer
           example: 1
         name:
           type: string
@@ -947,7 +947,7 @@ components:
         - appliedAt
       properties:
         id:
-          type: number
+          type: integer
           example: 1
         candidate:
           $ref: '#/components/schemas/CandidateSummary'
