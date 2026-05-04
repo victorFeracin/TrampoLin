@@ -1,0 +1,59 @@
+name: API Tests
+
+on:
+  push:
+    branches:
+      - test
+      - dev
+      - main
+  pull_request:
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    env:
+      PORT: 3000
+      JWT_SECRET: ${{ secrets.CI_JWT_SECRET }}
+      JWT_EXPIRES_IN: 1d
+      ENABLE_TEST_RESET: "true"
+      TEST_RESET_SECRET: ${{ secrets.CI_TEST_RESET_SECRET }}
+      API_BASE_URL: http://localhost:3000
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start API
+        run: |
+          node src/server.js > api.log 2>&1 &
+
+      - name: Wait for API
+        run: |
+          for attempt in {1..30}; do
+            if curl --silent --fail "$API_BASE_URL/jobs" > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat api.log
+          exit 1
+
+      - name: Run API tests
+        run: npm run test:api:ci
+
+      - name: Upload Mochawesome report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: test-results/mochawesome
+          if-no-files-found: warn
